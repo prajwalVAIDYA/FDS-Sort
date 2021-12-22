@@ -1,0 +1,23 @@
+def Selection_Sort(marks):
+    for i in range(len(marks)):
+        min_idx = i
+        for j in range(i + 1, len(marks)):
+            if marks[min_idx] > marks[j]:
+                min_idx = j
+        marks[i], marks[min_idx] = marks[min_idx], marks[i]
+
+marks = []
+size = int(input("Enter how many Students you want to sort : "))
+for i in range(size):
+  value = int(input("Enter Student Mark : "))
+  marks.append(value)
+print("Array : ", marks)
+
+Selection_Sort(marks)
+print("Array after Selection Sort is : ")
+for i in range(size):
+  print(marks[i], end =" ")
+
+print("\nTop Five Marks are : ")
+marks.reverse()
+print(marks[:5])
