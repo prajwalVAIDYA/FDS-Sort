@@ -1,0 +1,38 @@
+# divide function
+def partition(marks,low,high):
+   i = ( low-1 )
+   pivot = marks[high] # pivot element
+   for j in range(low , high):
+      # If current element is smaller
+      if marks[j] <= pivot:
+         # increment
+         i = i+1
+         marks[i],marks[j] = marks[j],marks[i]
+   marks[i+1],marks[high] = marks[high],marks[i+1]
+   return ( i+1 )
+
+# sort function
+def Quick_Sort(marks,low,high):
+   if low < high:
+      # index
+      pi = partition(marks,low,high)
+      # sort the partitions
+      Quick_Sort(marks, low, pi-1)
+      Quick_Sort(marks, pi+1, high)
+
+marks = []
+size = int(input("Enter how many Students you want to sort : "))
+for i in range(size):
+  value = int(input("Enter Student Mark : "))
+  marks.append(value)
+print("Array : ", marks)
+n = len(marks)
+
+Quick_Sort(marks,0,n-1)
+print("Array after Quick Sort is : ")
+for i in range(size):
+  print(marks[i], end =" ")
+
+print("\nTop Five Marks are : ")
+marks.reverse()
+print(marks[:5])
