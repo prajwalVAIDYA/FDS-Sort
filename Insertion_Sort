@@ -1,0 +1,24 @@
+def Insertion_Sort(marks):
+    for i in range(1, len(marks)):
+        key = marks[i]
+        j = i-1
+        while j >=0 and key < marks[j] :
+                marks[j+1] = marks[j]
+                j -= 1
+        marks[j+1] = key
+
+marks = []
+size = int(input("Enter how many Students you want to sort : "))
+for i in range(size):
+  value = int(input("Enter Student Mark : "))
+  marks.append(value)
+print("Array : ", marks)
+
+Insertion_Sort(marks)
+print("Array after Selection Sort is : ")
+for i in range(size):
+  print(marks[i], end =" ")
+
+print("\nTop Five Marks are : ")
+marks.reverse()
+print(marks[:5])
