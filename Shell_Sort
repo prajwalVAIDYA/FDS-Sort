@@ -1,0 +1,28 @@
+def Shell_Sort(marks):
+   n = len(marks)
+   interval = n // 2
+   while interval > 0:
+      for i in range(interval, n):
+         temp = marks[i]
+         j = i
+         while j >= interval and marks[j - interval] > temp:
+            marks[j] = marks[j - interval]
+            j -= interval
+         marks[j] = temp
+      interval //= 2
+
+marks = []
+size = int(input("Enter how many Students you want to sort : "))
+for i in range(size):
+  value = int(input("Enter Student Mark : "))
+  marks.append(value)
+print("Array : ", marks)
+
+Shell_Sort(marks)
+print("Array after Shell Sort is : ")
+for i in range(size):
+  print(marks[i], end =" ")
+
+print("\nTop Five Marks are : ")
+marks.reverse()
+print(marks[:5])
