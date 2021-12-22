@@ -1,0 +1,22 @@
+def Bubble_Sort(marks):
+    n = len(marks)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if marks[j] > marks[j + 1]:
+                marks[j], marks[j + 1] = marks[j + 1], marks[j]
+
+marks = []
+size = int(input("Enter how many Students you want to sort : "))
+for i in range(size):
+  value = int(input("Enter Student Mark : "))
+  marks.append(value)
+print("Array : ", marks)
+
+Bubble_Sort(marks)
+print("Array after Bubble Sort is : ")
+for i in range(size):
+  print(marks[i], end =" ")
+
+print("\nTop Five Marks are : ")
+marks.reverse()
+print(marks[:5])
